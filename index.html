@@ -1,91 +1,227 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-        <a href="#"><img src="images/logo.png" alt="Logo" class="logo"></a>
-      </header>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/30b1bc1215.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+  <header class="header">
+    <a href="#"><img src="images/logo.png" alt="Logo" class="logo"></a>
+  </header>
     <div id="fullpage">
-        <div class="section landing-page">
-            <div class="frosted-glass"></div>
+      <div class="section landing-page">
+        <div class="landing-content">
+          <div class="landing-text">
             <h1>Saad Chowdhury</h1>
-            <h2>Full-Stack Developer</h2>
-            <p>Coder | Researcher | Passionate Learner</p>
+            <h2>
+              <span class="enlarge-on-hover">Full-</span>
+              <span class="enlarge-on-hover">Stack</span>
+              <span class="enlarge-on-hover">Developer</span>
+            </h2>
+            <p class ="sub-text">Coder | Researcher | Passionate Learner</p>
             <div class="icons">
-              <a href="https://www.linkedin.com/in/saadchow"><img src="images/linkedin.png" alt="LinkedIn"></a>
-              <a href="https://github.com/saadchow"><img src="images/github.png" alt="GitHub"></a>
+              <a href="https://www.linkedin.com/in/saadchow"><i class="icon fa fa-linkedin"></i></a>
+              <a href="https://github.com/saadchow"><i class="icon fa fa-github-alt"></i></a>
             </div>
-            <div class="arrow">
-              <img src="images/arrow.png" alt="Down arrow">
           </div>
+          <div class="landing-image">
+            <a href="https://github.com/saadchow"><img src="images/desktop.png" alt="desktop"></a>
           </div>
+          <div class="scroll-down-container">
+            <span class="scroll-down-text">Scroll Down</span>
+            <span class="material-icons arrow-icon">keyboard_arrow_down</span>
+          </div>
+        </div>
+      </div>
+
       <div class="section bio-page">
         <img src="images/profile.png" alt="Profile photo" class="profile-photo">
+        
         <div class="description">
           <h3>Hello World!</h3>
           <p>I'm Saad Chowdhury, Nice to meet you!</p>
-          <p>I’m a recent graduate in <strong>Full-Stack Software Engineering</strong> from <strong>General Assembly</strong>, with an <strong>Honours Degree in Life Sciences</strong> from <strong>McMaster University.</strong> I’m passionate about <strong>continuous learning</strong> and <strong>applying feedback</strong> to grow as a developer. I have a strong track record from previous experiences to <strong>work well in group settings</strong> and <strong>manage my time effectively.</strong> I’m excited to bring my <strong>unique blend of skills and interests</strong> to my work and I’m <strong>confident</strong> that I can contribute to my team’s success.</p>
-        </div>
-        <div class="arrow">
-          <img src="images/arrow.png" alt="Down arrow">
+          <div class="location">
+              <span class="material-symbols-outlined red"> near_me </span>
+              <p class ="location-text">Toronto, ON</p>
+            </div>
+          <p>I’m passionate about <strong>continuous learning</strong> and <strong>applying feedback</strong> to grow as a developer. I have a strong track record from previous experiences to <strong>work well in group settings</strong> and <strong>manage my time effectively.</strong> I’m excited to bring my <strong>unique blend of skills and interests</strong> to my work and I’m <strong>confident</strong> that I can contribute to my team’s success.</p>
         </div>
       </div>
-      <div class="section projects-page">
-        <h2><u>Projects</u></h2>
-        <div class="project">
-            <h3>PLACEHOLDER</h3>
-            <p>Javascript | HTML5 | Materialize CSS | React | Node.js | Express</p>
-            <a href="https://PLACEHOLDER.herokuapp.com">PLACEHOLDER.herokuapp.com</a>
-            <p>Comprehensive show tracking web application – TV show tracking app that enables users to monitor and review their current and planned viewing, while also keeping track of their favourite shows.</p>
-        </div>
-        <div class="project">
-            <h3>GarageGuru</h3>
-            <p>Javascript | HTML5 | Materialize CSS | Django | Python | PostgreSQL | Amazon S3</p>
-            <a href="https://garageguru.herokuapp.com">garageguru.herokuapp.com</a>
-            <p>Social Media Car Hobby sharing web application - GarageGuru is a social media web application designed for automotive hobbyists to share and discover cars with likeminded individuals in a clutter-free environment.</p>
-        </div>
-        <div class="project">
-            <h3>Calor-Me</h3>
-            <p>Javascript | HTML5 | Materialize CSS | Node.js | Express | Mongoose | MongoDB | Google OAuth</p>
-            <a href="https://calorme.herokuapp.com">calorme.herokuapp.com</a>
-            <p>Personal Health & Meal Tracker web application – Calor-Me is a user-friendly web application designed to help you track your meals and macros, making it easier to achieve your personal health and wellness goals.</p>
-        </div>
-        <div class="project">
-            <h3>2048</h3>
-            <p>Javascript | HTML5 | CSS</p>
-            <p>A faithful reinterpetation of the classic 2048 game!</p>
-        </div>
-        
-    </div>
-    
-    <div class="section education-page">
-        <h2><u>Education</u></h2>
-        <div class="education">
-            <h3>General Assembly</h3>
-            <h4>Software Engineering Immersive</h4>
-            <p>Full-Stack Software Development</p>
-            <p>2022-2023</p>
-        </div>
-        <div class="education">
-            <h3>McMaster University</h3>
-            <h4>Bachelors of Science (B. Sc.) - Honours Life Sciences</h4>
-            <p>Full-Stack Software Development</p>
-            <p>2016-2021</p>
-        </div>
-        <footer>
-            <img src="images/logo.png" alt="Logo" class="logo">
-            <p>Copyright © Saad Chowdhury</p>
-          </footer>
     </div>
 
-  </body>
-  <script src="https://cdn.jsdelivr.net/jquery.scrollify/0.1.14/jquery.scrollify.min.js"></script>
+    <div class="section tools-page"> 
+        <div class="tools-description">
+          <h2>Skills & Experience</h2>
+        </div>
+        <div class="skills-text">
+          <p>As a skilled full-stack developer, I bring proficiency in both front-end and back-end development.</p>
+        </div>
+
+        <div class="skills-text-1">
+          <p>My passion for continuous learning and exploration of new technologies fuels my drive to deliver exceptional and
+        impactful solutions for every project I undertake.</p>
+        </div>
+        
+        <div class="skills-container">
+          <div class="skill-item">
+            <i class="fa-brands fa-square-js fa-5x"></i>
+            <p>Javascript</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-python fa-5x"></i>
+            <p>Python</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-html5 fa-5x"></i>
+            <p>HTML5</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-css3-alt fa-5x"></i>
+            <p>CSS3</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-bootstrap fa-5x"></i>
+            <p>Bootstrap</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-react fa-5x"></i>
+            <p>React</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-node-js fa-5x"></i>
+            <p>NodeJS</p>
+          </div>
+          <div class="skill-item">
+            <img src="images/django.svg" alt="django-logo" style="width: 5em; height: 5em;">
+            <p>Django</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-aws fa-5x"></i>
+            <p>Amazon S3</p>
+          </div>
+          <div class="skill-item">
+            <img src="images/mongo.svg" alt="mongo-logo" style="width: 5em; height: 5em;">
+            <p>MongoDB</p>
+          </div>
+          <div class="skill-item">
+            <img src="images/sql.svg" alt="sql" style="width: 5em; height: 5em;">
+            <p>SQL</p>
+          </div>
+          <div class="skill-item">
+            <img src="images/heroku.svg" alt="heroku" style="width: 5em; height: 5em;">
+            <p>Heroku</p>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-git-alt fa-5x"></i>
+            <p>Git</p>
+          </div>
+        </div>
+    </div>
+
+<div class="section projects">
+
+  <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="intro-text">
+          <h2>Portfolio & Previous Projects</h2>
+          <p>A collection of various projects I have worked on. Feel free to check out the Github Repository for an indepth look under the hood!
+          </p>
+        </div>
+      </div>
+
+      <div class="mySlides fade">     
+        <div class="image"><img src="images/ShowTime.png"></div>
+        <div class="image-text">
+          <p><a href="https://github.com/saadchow/ShowTime" target="_blank">View Code   <span class="material-symbols-outlined">
+            arrow_forward_ios
+          </span></a></p>
+          <p><a href="https://show-time.herokuapp.com" target="_blank" class="yellow-link">Visit App   <span class="material-symbols-outlined">
+            arrow_forward_ios
+          </span></a></p>
+        </div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image"><img src="images/GarageGuru.png"></div>
+        <div class="image-text">
+          <p><a href="https://github.com/tonyhylo/GarageGuru" target="_blank">View Code <span class="material-symbols-outlined">
+                arrow_forward_ios
+              </span></a></p>
+          <p><a href="http://garageguru.herokuapp.com/" target="_blank" class="yellow-link">Visit App <span class="material-symbols-outlined">
+                arrow_forward_ios
+              </span></a></p>
+        </div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image"><img src="images/CalorMe.png"></div>
+        <div class="image-text2">
+          <p><a href="https://github.com/saadchow/Calor-Me" target="_blank">View Code <span class="material-symbols-outlined">
+                arrow_forward_ios
+              </span></a></p>
+          <p><a href="https://calorme.herokuapp.com" target="_blank" class="yellow-link">Visit App <span class="material-symbols-outlined">
+                arrow_forward_ios
+              </span></a></p>
+        </div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image"><img src="images/2048.png"></div>
+        <div class="image-text">
+          <p><a href="https://github.com/saadchow/2048" target="_blank">View Code <span class="material-symbols-outlined">
+                arrow_forward_ios
+              </span></a></p>
+          <p><a href="https://saadchow.github.io/2048" target="_blank" class="yellow-link">Visit App <span class="material-symbols-outlined">
+                arrow_forward_ios
+              </span></a></p>
+        </div>
+      </div> 
+
+  </div>
+
+    <div class="dots-container" style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+
+</div>  
+
+  <div class="section education-page">
+    <div class="education-description">
+      <h2>Previous Education</h2>
+    </div>
+    
+  
+    <div class="education">
+      <p><a href="https://www.generalassemb.ly"><h3><span class="material-symbols-outlined terminal-icon">terminal</span>General Assembly</h3></a></p>
+      <h4>Software Engineering Immersive</h4>
+      <p>Full-Stack Software Development</p>
+      <p>2022-2023</p>
+    </br>
+  
+     <p><a href="https://www.mcmaster.ca"><h3><span class="material-symbols-outlined school-icon">school</span>McMaster University</h3></a></p>
+      <h4>Honours Bachelor of Science (H. B. Sc.)</h4>
+      <p>Honours Life Sciences</p>
+      <p>2016-2021</p>
+   </div>
+  
   <script src="script.js"></script>
+
+</body>
+
 </html>

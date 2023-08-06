@@ -19,11 +19,58 @@ header {
   left: 0;
   width: 100%;
   z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  opacity: 1;
+  transition: background-color 0.3s;
+}
+
+.toggle-button {
+  margin-right: 20px;
+}
+
+.toggle-icon:before {
+  font-family: "FontAwesome";
+  content: "\f185";
+}
+
+.dark-mode .toggle-icon:before {
+  content: "\f186";
+}
+
+.dark-mode header {
+  background-color: #000000;
+  color: #fff;
+}
+
+.dark-mode body {
+  color: #fff;
+}
+
+.dark-mode .toggle-icon {
+  color: #fff;
+}
+
+.dark-mode .landing-page {
+  background-color: #222;
+  color: #fff;
 }
 
 header .logo {
   width: auto;
   height: 50px;
+  filter: brightness(0) invert(1);
+}
+
+.dark-mode .header .logo {
+  filter: brightness(1) invert(0);
+}
+
+.dark-mode {
+  background-color: #222;
+  color: #fff;
 }
 
 #fullpage {
@@ -35,206 +82,442 @@ header .logo {
 }
 
 .landing-page {
-  background-color:#e6e6fa; 
-  position: relative;
-  display:flex; 
-  flex-direction:column; 
-  align-items:center; 
-  justify-content:center; 
-  background-image: url('images/background.jpg');
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #121111;
+  color: #fff;
 }
 
-.frosted-glass {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(10px);
-  z-index: -1;
+.landing-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.landing-page h1,
-.landing-page h2,
-.landing-page p {
-  margin: 0;
-  margin-bottom: 8px;
+.landing-text {
+  text-align: left;
+  margin-left: 8em;
+  max-width: 50%;
 }
 
-.landing-page h1 {
-  color: lightgrey;
-  font-size:3em; 
+.landing-image {
+  flex-basis: 45%;
+  margin-right: 8%;
 }
 
-.landing-page h2 {
-  color: white;
-  font-size:6em;
+.landing-page img {
+  transition: transform 0.1s ease-in-out;
 }
 
-.landing-page p {
-  color: lightgray;
-  font-size:1.5em; 
-}
-
-.icons {
-position: absolute;
-bottom: 10% !important;;
-left: 0 !important;;
-width: 100%;
-display: flex;
-justify-content: center;
-z-index: 1;
-}
-
-.icons img {
-width: 30px;
-height: 30px;
-filter: invert(1);
-}
-
-.icons img:hover {
-  transform: scale(1.2);
-  transition: transform 0.2s;
-}
-
-.icons a:first-of-type {
-margin-right: 12px;
-}
-
-.arrow {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
+.landing-page img:hover {
+  transform: scale(1.05);
   cursor: pointer;
 }
 
-.arrow img {
-  width: 30px;
+.landing-image img {
+  width: 100%;
   height: auto;
-  filter: invert(1);
 }
 
-.arrow img:hover {
-  transform: scale(1.2);
+.landing-page h1 {
+  font-size: 3em;
+  margin-bottom: 0;
+}
+
+.landing-page h2 {
+  font-size: 4em;
+  margin-bottom: 10px;
+}
+
+.sub-text {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.landing-page p {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.icons a {
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #fff;
+  border-radius: 50%;
   transition: transform 0.2s;
 }
 
+.icons i {
+  font-size: 40px;
+  color: #fff;
+}
+
+.icons a:hover {
+  transform: scale(1.2);
+}
+
+.scroll-down-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.arrow-icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.scroll-down-text {
+  writing-mode: vertical-lr;
+}
+
+.scroll-down-container:hover .arrow-icon {
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.scroll-down-container:hover .scroll-down-text {
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .bio-page {
-  display:flex; 
-  align-items:center; 
+  display: flex;
+  align-items: center;
+  background-color: #121111;
+}
+
+.description .location-text {
+  font-size: 25px !important;
+  color: #999;
 }
 
 .bio-page .profile-photo {
-  width:30%; 
-  height:auto; 
-  border-radius:50%; 
-  margin-left:8%; 
+  width: 30%;
+  height: auto;
+  border-radius: 50%;
+  margin-left: 8%;
 }
 
 .bio-page .description h3 {
- font-size :4.5em; 
- font-family:'Lato', sans-serif; 
+  font-size: 4.5em;
+  color: white;
+  font-family: 'Lato', sans-serif;
 }
 
 .bio-page .description p:first-of-type {
- font-size :2.5em; 
- text-align:center; 
+  font-size: 2.5em;
+  text-align: center;
 }
 
-.bio-page .description p:nth-of-type(2) {
- font-size :1em; 
- text-align:center; 
-}
-
-.bio-page .description {
- margin-left :4%; 
- margin-right :5%; 
- text-align:center; 
- margin-top :-10%; 
-}
-
-.bio-page .arrow {
- position:absolute; 
- bottom :0; 
- left :0; 
- width :100%; 
- height :50px; 
- background-color:#8c90dd; 
- display:flex; 
- justify-content:center; 
- align-items:center; 
-}
-
-.projects-page,
-.education-page {
- display:flex; 
- flex-direction :column; 
- justify-content:center; 
- align-items:flex-start;  
-}
-
-.projects-page h2,
-.education-page h2 {
- text-align:left;  
- margin-left :20%;  
-}
-
-.projects-page h2 {color:white;}
-
-.education-page h2 {color:#8c90dd;}
-
-.project,
-.education {
- width :40%;  
- margin :0 auto 20px ;  
- padding :20px ;  
- border :1px solid lightgray ;  
- border-radius :10px ;  
- box-shadow :0px 5px 5px rgba(0,0,0,0.1) ;  
-}
-
-.project h3,
-.education h3 {
-  margin-top :0;
-}
-
-.projects-page {
-  background-color:#8c90dd;
-}
-
-.projects-page .project {
-  background-color:white;
-}
-
-.education-page .education {
-  background-color:#8c90dd;
-}
-
-.education p,
-.education h3,
-.education h4 {
-  color:white;
-}
-
-footer .logo {
-  height :50px;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+.location {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #8c90dd;
+  margin-top: -4%;
 }
 
-footer p {
-  margin-left :10px ; 
-  color:white;
+.location .material-symbols-outlined {
+  font-size: 35px !important;
+}
+
+.red {
+  color: red;
+  font-size: 50px;
+  margin-right: 15px;
+}
+
+.bio-page .description p:nth-of-type(2) {
+  font-size: 1em;
+  text-align: center;
+  margin-right: 11%;
+  margin-left: 10%;
+}
+
+.bio-page .description {
+  margin-left: 4%;
+  margin-right: 5%;
+  text-align: center;
+  color: white;
+  margin-top: -5%;
+}
+
+.tools-page {
+  background-color: #121111;
+}
+
+.tools-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.tools-description h2 {
+  font-size: 80px;
+  color: white;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  margin-top: 10%;
+}
+
+.skills-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #c2c2c2;
+  margin-top: -3%;
+  margin-left: 25%;
+  margin-right: 25%;
+  font-family: 'Nunito', sans-serif;
+}
+.skills-text-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #c2c2c2;
+  margin-top: -1%;
+  margin-left: 25%;
+  margin-right: 25%;
+  font-family: 'Nunito', sans-serif;
+}
+
+.skills-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 7%;
+  color: white;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.projects {
+  background: #121111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.slideshow-container {
+  position: relative;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+.image {
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.mySlides .image-text {
+  position: absolute;
+  bottom: 50px;
+  left: 25px;
+  color: white;
+  font-size: 22px;
+}
+
+.mySlides .image-text p {
+  margin: 0;
+  padding: 0;
+}
+
+.mySlides .image-text a {
+  color: white;
+  text-decoration: none;
+}
+
+.mySlides .image-text .yellow-link {
+  color: rgb(213, 144, 6);
+}
+
+.mySlides .image-text .material-symbols-outlined {
+  font-size: 18px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.mySlides .image-text2 {
+  position: absolute;
+  bottom: 50px;
+  right: 25px;
+  color: white;
+  font-size: 22px;
+}
+
+.mySlides .image-text2 p {
+  margin: 0;
+  padding: 0;
+}
+
+.mySlides .image-text2 a {
+  color: white;
+  text-decoration: none;
+}
+
+.mySlides .image-text2 .yellow-link {
+  color: rgb(213, 144, 6);
+}
+
+.mySlides .image-text2 .material-symbols-outlined {
+  font-size: 18px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.mySlides .image-text a:hover {
+  font-size: 23px;
+}
+
+.mySlides .image-text2 a:hover {
+  font-size: 23px;
+
+}
+
+.intro-text h2 {
+  font-size: 80px;
+  margin-top: -10px;
+  color: white;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+}
+
+.intro-text p {
+  color: white;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+}
+
+
+.dots-container {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.active,
+.dot:hover {
+  background-color: #373535;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.education-page {
+  background-color: #121111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.education-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -200px;
+}
+
+.education-description h2 {
+  font-size: 80px;
+  color: white;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+}
+
+.school-icon,
+.terminal-icon {
+  font-size: 44px;
+  margin-right: 10px;
+  color: white;
+}
+
+.education {
+  padding-top: 50px;
+}
+
+.education h3 {
+  margin: 0;
+  color: white;
+  font-size: 28px;
+}
+
+.education h4{
+  font-size: 34px;
+}
+
+.education h4,
+.education p {
+  margin: 5px 0;
+  color: white;
+}
+
+.education a {
+  color: white;
+  text-decoration: none;
+}
+
+.education a:hover {
+  font-size: 20px;
 }
