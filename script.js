@@ -28,3 +28,19 @@ function showSlides(n) {
 }
 
 
+ window.addEventListener('scroll', function() {
+    const educationSection = document.getElementById('education-section');
+    const scrollDownText = document.querySelector('.scroll-down-container');
+    
+    const distanceToBottom = educationSection.getBoundingClientRect().bottom;
+
+    if (distanceToBottom <= window.innerHeight) {
+      scrollDownText.style.display = 'none';
+    } else {
+      scrollDownText.style.display = 'block';
+    }
+  });
+
+const yearElement = document.getElementById('year');
+const currentYear = new Date().getFullYear();
+yearElement.textContent = currentYear;
