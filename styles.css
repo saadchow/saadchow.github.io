@@ -292,14 +292,24 @@ header .logo {
   font-family: 'Nunito', sans-serif;
 }
 
+img.invert {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+img.greyscale {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
 .skills-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 7%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
   color: white;
 }
 
@@ -436,6 +446,20 @@ header .logo {
   transition: background-color 0.6s ease;
 }
 
+.arrow {
+  vertical-align: middle;
+}
+
+.arrow .material-symbols-outlined {
+  color: white;
+  margin: 0 10px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.arrow:hover .material-symbols-outlined {
+  transform: scale(1.2);
+}
 
 .fade {
   animation-name: fade;

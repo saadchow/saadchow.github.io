@@ -1,31 +1,32 @@
-let slideIndex = 1;
-showSlides(slideIndex);
+let customSlideIndex = 1;
+showSlides(customSlideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides(customSlideIndex += n);
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides(customSlideIndex = n);
 }
 
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) { customSlideIndex = 1; }
+  if (n < 1) { customSlideIndex = slides.length; }
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+  slides[customSlideIndex - 1].style.display = "block";
+  dots[customSlideIndex - 1].className += " active";
 }
+
 
 
  window.addEventListener('scroll', function() {
