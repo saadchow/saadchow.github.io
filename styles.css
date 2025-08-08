@@ -301,8 +301,9 @@ header {
 }
 
 .profile-photo {
-  width: 500px;
-  height: 500px;
+  width: clamp(240px, 40vw, 520px);
+  aspect-ratio: 1/1;
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid var(--accent);
@@ -1011,3 +1012,4 @@ header {
     padding-left: 0; /* so the whole block centers nicely on mobile */
   }
 }
+
