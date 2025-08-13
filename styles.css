@@ -88,28 +88,45 @@ header {
 }
 
 .theme-toggle{
-  --w:50px; --h:25px; --pad:2px;
-  width:var(--w); height:var(--h); border-radius:calc(var(--h)/2);
-  background:var(--accent); border:0; position:relative; cursor:pointer;
-  -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+  --w:56px; --h:32px; --p:3px;
+  width:var(--w); height:var(--h);
+  border:0; border-radius:999px;
+  background:#e7edf6;
+  position:relative; cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
   transition:background .2s ease;
 }
-.toggle-knob{
-  position:absolute; top:var(--pad); left:var(--pad);
-  width:calc(var(--h) - 2*var(--pad)); height:calc(var(--h) - 2*var(--pad));
-  border-radius:50%; background:#fff; display:grid; place-items:center;
-  box-shadow:0 1px 3px rgba(0,0,0,.25); transition:transform .25s ease;
+[data-theme="dark"] .theme-toggle{ background:#4554f2; }
+
+.toggle-thumb{
+  position:absolute; top:var(--p); left:var(--p);
+  width:calc(var(--h) - 2*var(--p));
+  height:calc(var(--h) - 2*var(--p));
+  border-radius:50%;
+  background:#fff;
+  display:grid; place-items:center;
+  box-shadow:0 6px 12px rgba(0,0,0,.18), 0 1px 0 rgba(0,0,0,.06) inset;
+  transition:transform .25s ease;
 }
-.theme-toggle .icon-sun,.theme-toggle .icon-moon{ width:70%; height:70%; display:block; }
-.theme-toggle .icon-sun{ fill:#FDB813; }
-.theme-toggle .icon-moon{ fill:#9CA3AF; display:none; }
-[data-theme="dark"] .toggle-knob{ transform:translateX(calc(var(--w) - var(--h))); }
+[data-theme="dark"] .toggle-thumb{ transform:translateX(calc(var(--w) - var(--h))); }
+
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon{
+  width:72%; height:72%; display:block;
+}
+.theme-toggle .icon-sun circle{ fill:#9ca3af; }
+.theme-toggle .icon-moon path{ fill:#9ca3af; }
+
+.theme-toggle .icon-moon{ display:none; }
 [data-theme="dark"] .theme-toggle .icon-sun{ display:none; }
 [data-theme="dark"] .theme-toggle .icon-moon{ display:block; }
 
+/* optional: compact size on small iPhones */
 @media (max-width:430px) and (orientation:portrait){
-  .theme-toggle{ --w:44px; --h:22px; }
+  .theme-toggle{ --w:50px; --h:28px; --p:3px; }
 }
+
 
 
 .button-pair {
@@ -1001,6 +1018,7 @@ header {
   .landing-text h2 { font-size: 2.05rem; }
   .landing-image img { max-height: 26vh; }
 }
+
 
 
 
