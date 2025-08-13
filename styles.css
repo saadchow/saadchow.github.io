@@ -56,38 +56,53 @@ header {
 [data-theme="dark"] .logo { filter: brightness(0) invert(1); }
 
 .header-controls { display: flex; align-items: center; gap: 15px; }
-
-/* THEME TOGGLE (icons + purple track) */
+/* Track */
 .theme-toggle{
   --w:56px; --h:32px; --p:3px;
   width:var(--w); height:var(--h);
   border:0; border-radius:999px;
-  background:linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+  background:#e7edf6;
   position:relative; cursor:pointer;
-  -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
   transition:background .2s ease;
 }
-.theme-toggle::after { content:none !important; display:none !important; }
+@media (max-width:430px) and (orientation:portrait){
+  .theme-toggle{ --w:50px; --h:28px; --p:3px; }
+}
+[data-theme="dark"] .theme-toggle{
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
 
+/* Thumb */
 .toggle-thumb{
   position:absolute; top:var(--p); left:var(--p);
-  width:calc(var(--h) - 2*var(--p)); height:calc(var(--h) - 2*var(--p));
-  border-radius:50%; background:#fff; display:grid; place-items:center;
-  box-shadow:0 6px 12px rgba(0,0,0,.18), 0 1px 0 rgba(0,0,0,.06) inset;
+  width:calc(var(--h) - 2*var(--p));
+  height:calc(var(--h) - 2*var(--p));
+  border-radius:50%;
+  background:#fff;
+  display:grid; place-items:center;
+  color:#9ca3af;               /* icon color via currentColor */
+  box-shadow:
+    0 10px 16px rgba(0,0,0,.18),
+    0 1px 0 rgba(0,0,0,.06) inset,
+    0 -1px 0 rgba(255,255,255,.65) inset;
   transition:transform .25s ease;
 }
-[data-theme="dark"] .toggle-thumb{ transform:translateX(calc(var(--w) - var(--h))); }
+[data-theme="dark"] .toggle-thumb{
+  transform:translateX(calc(var(--w) - var(--h)));
+}
 
-.theme-toggle .icon-sun, .theme-toggle .icon-moon{ width:76%; height:76%; display:block; pointer-events:none; }
-.theme-toggle .icon-sun circle{ fill:#9ca3af; }
-.theme-toggle .icon-moon path{ fill:#9ca3af; }
+/* Icons in the thumb */
+.toggle-thumb svg{ width:72%; height:72%; display:block; }
+.icon-sun circle,
+.icon-moon path{ fill: currentColor; }
+
+/* Show/hide per theme */
 .theme-toggle .icon-moon{ display:none; }
 [data-theme="dark"] .theme-toggle .icon-sun{ display:none; }
 [data-theme="dark"] .theme-toggle .icon-moon{ display:block; }
 
-@media (max-width:430px) and (orientation:portrait){
-  .theme-toggle{ --w:50px; --h:28px; --p:3px; }
-}
 
 .button-pair { display: flex; gap: 5px; }
 
@@ -372,3 +387,4 @@ header {
   .landing-text h2 { font-size: 2.1rem; }
   .landing-image img { max-height: 32vh; }
 }
+
