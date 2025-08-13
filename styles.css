@@ -89,29 +89,39 @@ header {
 
 .theme-toggle{
   --w:50px; --h:25px; --pad:2px;
-  --sun:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FDB813'%3E%3Cpath d='M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.79 1.8-1.79zM1 11h3v2H1v-2zm9-9h2v3h-2V2zm9.83 2.05l-1.79-1.79-1.79 1.79 1.79 1.79 1.79-1.79zM20 11h3v2h-3v-2zM12 6a6 6 0 100 12 6 6 0 000-12zm0 13h2v3h-2v-3zm-8.83 0l1.79 1.79 1.79-1.79-1.79-1.79-1.79 1.79zM18.36 17.24l1.8 1.79 1.79-1.79-1.79-1.79-1.8 1.79z'/%3E%3C/svg%3E");
-  --moon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239CA3AF'%3E%3Cpath d='M21 12.8A9 9 0 1111.2 3a7 7 0 109.8 9.8z'/%3E%3C/svg%3E");
-  width:var(--w); height:var(--h); border-radius:calc(var(--h)/2);
-  background:var(--accent); border:0; position:relative; cursor:pointer;
-  -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+  width:var(--w); height:var(--h);
+  border-radius:calc(var(--h)/2);
+  background:var(--accent);
+  border:0; position:relative; cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
   transition:background .2s ease;
 }
+
 .theme-toggle::after{
-  content:""; position:absolute; inset:var(--pad); border-radius:50%;
-  background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.25);
-  background-image:var(--sun); background-repeat:no-repeat;
-  background-position:center; background-size:70%;
+  content:"";
+  position:absolute;
+  top:var(--pad); left:var(--pad);
+  width:calc(var(--h) - 2*var(--pad));
+  height:calc(var(--h) - 2*var(--pad));
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,.25);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FDB813'%3E%3Cpath d='M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.79 1.8-1.79zM1 11h3v2H1v-2zm9-9h2v3h-2V2zm9.83 2.05l-1.79-1.79-1.79 1.79 1.79 1.79 1.79-1.79zM20 11h3v2h-3v-2zM12 6a6 6 0 100 12 6 6 0 000-12zm0 13h2v3h-2v-3zm-8.83 0l1.79 1.79 1.79-1.79-1.79-1.79-1.79 1.79zM18.36 17.24l1.8 1.79 1.79-1.79-1.79-1.79-1.8 1.79z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:70%;
   transition:transform .25s ease;
 }
+
 [data-theme="dark"] .theme-toggle::after{
   transform:translateX(calc(var(--w) - var(--h)));
-  background-image:var(--moon);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239CA3AF'%3E%3Cpath d='M21 12.8A9 9 0 1111.2 3a7 7 0 109.8 9.8z'/%3E%3C/svg%3E");
 }
 
 @media (max-width:430px) and (orientation:portrait){
   .theme-toggle{ --w:44px; --h:22px; }
 }
-
 
 .button-pair {
   display: flex;
@@ -1002,6 +1012,7 @@ header {
   .landing-text h2 { font-size: 2.05rem; }
   .landing-image img { max-height: 26vh; }
 }
+
 
 
 
