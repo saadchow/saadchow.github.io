@@ -24,7 +24,17 @@
   <header class="header">
     <a href="#"><img src="images/logo.png" alt="Logo" class="logo"></a>
     <div class="header-controls">
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" onclick="toggleTheme()"></button>
+      <button class="theme-toggle" type="button" aria-label="Toggle theme" onclick="toggleTheme()">
+        <span class="toggle-knob">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.79 1.8-1.79zM1 11h3v2H1v-2zm9-9h2v3h-2V2zm9.83 2.05l-1.79-1.79-1.79 1.79 1.79 1.79 1.79-1.79zM20 11h3v2h-3v-2zM12 6a6 6 0 100 12 6 6 0 000-12zm0 13h2v3h-2v-3zm-8.83 0l1.79 1.79 1.79-1.79-1.79-1.79-1.79 1.79zM18.36 17.24l1.8 1.79 1.79-1.79-1.79-1.79-1.8 1.79z"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 109.8 9.8z"/>
+          </svg>
+        </span>
+      </button>
+
       <div class="button-pair">
         <a href="resume.pdf" class="contact-button" download>Download Resume</a>
         <a href="#contact-section" class="contact-button">Contact Me</a>
@@ -315,6 +325,7 @@
 </body>
 
 </html>
+
 
 
 
