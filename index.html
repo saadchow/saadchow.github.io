@@ -22,19 +22,26 @@
     <a href="#"><img src="images/logo.png" alt="Logo" class="logo"></a>
     <div class="header-controls">
       <button class="theme-toggle" type="button" aria-label="Toggle theme" onclick="toggleTheme()">
-        <span class="toggle-thumb">
+        <span class="toggle-thumb" aria-hidden="true">
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="12" cy="3" r="1.5"/><circle cx="12" cy="21" r="1.5"/>
-            <circle cx="3" cy="12" r="1.5"/><circle cx="21" cy="12" r="1.5"/>
-            <circle cx="5.64" cy="5.64" r="1.5"/><circle cx="18.36" cy="5.64" r="1.5"/>
-            <circle cx="5.64" cy="18.36" r="1.5"/><circle cx="18.36" cy="18.36" r="1.5"/>
+            <circle cx="12" cy="12" r="3"/>
+            <g>
+              <circle cx="12" cy="5" r="1.2"/>
+              <circle cx="12" cy="19" r="1.2"/>
+              <circle cx="5" cy="12" r="1.2"/>
+              <circle cx="19" cy="12" r="1.2"/>
+              <circle cx="8.2" cy="8.2" r="1.2"/>
+              <circle cx="15.8" cy="8.2" r="1.2"/>
+              <circle cx="8.2" cy="15.8" r="1.2"/>
+              <circle cx="15.8" cy="15.8" r="1.2"/>
+            </g>
           </svg>
           <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 109.8 9.8z"/>
           </svg>
         </span>
       </button>
+
 
       <div class="button-pair">
         <a href="resume.pdf" class="contact-button" download>Download Resume</a>
@@ -233,3 +240,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
