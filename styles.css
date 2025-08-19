@@ -388,3 +388,24 @@ header {
   .landing-image img { max-height: 32vh; }
 }
 
+.card-emoji{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:180px;
+  width:100%;
+  font-size:72px;
+  line-height:1;
+  background: var(--card-bg);        
+  border: 1px solid var(--border);    
+  border-radius: 12px;
+  box-shadow: 0 8px 20px var(--shadow);
+  margin-bottom: 12px;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+@media (max-width: 768px){
+  .card-emoji{ height:160px; font-size:64px; }
+}
+
+
