@@ -1,109 +1,112 @@
 function toggleTheme() {
   const body = document.body;
   const header = document.querySelector('header');
-  const currentTheme = body.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  body.setAttribute('data-theme', newTheme);
-  if (header) header.style.background = newTheme === 'dark' ? 'rgba(18, 17, 17, 0.95)' : 'rgba(255, 255, 255, 0.95)';
-  localStorage.setItem('theme', newTheme);
-  body.style.transition = 'all 0.3s ease';
-  setTimeout(() => { body.style.transition = ''; }, 300);
+  const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  body.setAttribute('data-theme', next);
+  if (header) {
+    header.style.background =
+      next === 'dark' ? 'rgba(18, 17, 17, 0.95)' : 'rgba(255, 255, 255, 0.95)';
+  }
+  localStorage.setItem('theme', next);
 }
 
 function loadTheme() {
-  const savedTheme = localStorage.getItem('theme');
+  const saved = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+  const theme = saved || (prefersDark ? 'dark' : 'light');
   document.body.setAttribute('data-theme', theme);
   const header = document.querySelector('header');
-  if (header) header.style.background = theme === 'dark' ? 'rgba(18, 17, 17, 0.95)' : 'rgba(255, 255, 255, 0.95)';
+  if (header) {
+    header.style.background =
+      theme === 'dark' ? 'rgba(18, 17, 17, 0.95)' : 'rgba(255, 255, 255, 0.95)';
+  }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  loadTheme();
+const STAGGER_MAP = [
+  ['.landing-page', [
+    '.landing-text h1', '.landing-text h2', '.icons a', '.landing-image img'
+  ]],
+  ['.bio-page', [
+    '.profile-photo', '.description h3', '.intro-text', '.location', '.bio-text'
+  ]],
+  ['.tools-page', [
+    '.tools-description h2', '.skills-text', '.skills-text-1', '.skills-container .skill-item'
+  ]],
+  ['.projects-page', [
+    '.projects-description h2', '.projects-container .project-card'
+  ]],
+  ['.education-page', [
+    '.education-description h2', '.education'
+  ]],
+  ['.contact-page', [
+    '.contact-description h2', '.contact-text', '.contact-container'
+  ]]
+];
 
-  const contactButtons = document.querySelectorAll('a[href="#contact-section"]');
-  contactButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetSection = document.querySelector('#contact-section');
-      if (targetSection) targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+function prepareReveals() {
+  STAGGER_MAP.forEach(([sectionSel, itemSels]) => {
+    const section = document.querySelector(sectionSel);
+    if (!section) return;
+    let i = 0;
+    itemSels.forEach(sel => {
+      section.querySelectorAll(sel).forEach(el => {
+        el.setAttribute('data-reveal', '');
+        el.style.setProperty('--stagger', i++);
+      });
     });
   });
+}
 
-  const skillItems = document.querySelectorAll('.skill-item');
-  skillItems.forEach(item => {
-    item.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-10px) scale(1.02)'; });
-    item.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0) scale(1)'; });
+const revealObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+        obs.unobserve(entry.target);
+    }
   });
+}, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
 
-  const projectCards = document.querySelectorAll('.project-card');
-  projectCards.forEach(item => {
-    item.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-10px)'; });
-    item.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0)'; });
+
+function wireSmoothContactScroll() {
+  document.querySelectorAll('a[href="#contact-section"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector('#contact-section');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
+}
 
-  const animatedElements = document.querySelectorAll('.skill-item, .education, .contact-container, .project-card');
-  animatedElements.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(element);
-  });
-
-  const buttons = document.querySelectorAll('.contact-button, .theme-toggle');
-  buttons.forEach(button => { button.addEventListener('click', createRipple); });
-});
-
-window.addEventListener('scroll', function() {
+function wireScrollDownHelper() {
   const educationSection = document.getElementById('education-section');
-  const scrollDownText = document.querySelector('.scroll-down-container');
-  if (educationSection && scrollDownText) {
-    const distanceToBottom = educationSection.getBoundingClientRect().bottom;
-    scrollDownText.style.display = distanceToBottom <= window.innerHeight ? 'none' : 'block';
+  const hint = document.querySelector('.scroll-down-container');
+  if (!educationSection || !hint) return;
+  window.addEventListener('scroll', () => {
+    const dist = educationSection.getBoundingClientRect().bottom;
+    hint.style.display = dist <= window.innerHeight ? 'none' : 'block';
+  });
+}
+
+function setYear() {
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadTheme();
+  setYear();
+  wireSmoothContactScroll();
+  wireScrollDownHelper();
+
+prepareReveals();
+  document.querySelectorAll('.section').forEach(s => revealObserver.observe(s));
+
+  /* If user prefers reduced motion, reveal everything immediately */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.style.transition = 'none';
+    });
   }
 });
-
-const yearElement = document.getElementById('year');
-if (yearElement) {
-  const currentYear = new Date().getFullYear();
-  yearElement.textContent = currentYear;
-}
-
-function createRipple(event) {
-  const button = event.currentTarget;
-  const circle = document.createElement('span');
-  const diameter = Math.max(button.clientWidth, button.clientHeight);
-  const radius = diameter / 2;
-  circle.style.width = circle.style.height = `${diameter}px`;
-  circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-  circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
-  circle.classList.add('ripple');
-  const ripple = button.getElementsByClassName('ripple')[0];
-  if (ripple) ripple.remove();
-  button.appendChild(circle);
-}
-
-function typeWriter(element, text, speed = 100) {
-  let i = 0;
-  element.innerHTML = '';
-  (function type() { if (i < text.length) { element.innerHTML += text.charAt(i++); setTimeout(type, speed); } })();
-}
-
-const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-const observer = new IntersectionObserver(function(entries) {
-  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } });
-}, observerOptions);
-
-const style = document.createElement('style');
-style.textContent = `
-  .ripple{position:absolute;border-radius:50%;transform:scale(0);animation:ripple 600ms linear;background-color:rgba(255,255,255,0.7)}
-  @keyframes ripple{to{transform:scale(4);opacity:0}}
-  .contact-button,.theme-toggle{position:relative;overflow:hidden}
-`;
-document.head.appendChild(style);
-
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  document.querySelectorAll('.project-card, .skill-item, .education, .contact-container')
-    .forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; el.style.transition = 'none'; });
-}
