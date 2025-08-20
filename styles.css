@@ -315,3 +315,40 @@ body.reveal-ready .scroll-down-container{
   opacity: 1 !important;
   transform: none !important;
 }
+
+.landing-page .scroll-down-container{
+  position: fixed !important;
+
+  inset-block-end: 28px !important;        
+  inset-inline-end: max(28px, env(safe-area-inset-right)) !important; /* right */
+
+  inset-block-start: auto !important;  /* top */
+  inset-inline-start: auto !important; /* left */
+
+  transform: none !important;
+  margin: 0 !important;
+  z-index: 2000 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 8px;
+  color: #fff;
+}
+
+.landing-page .scroll-down-text{
+  writing-mode: vertical-lr !important;
+  text-orientation: mixed;
+  margin: 0;
+  letter-spacing: .06em;
+}
+
+.landing-page .arrow-icon{ font-size: 24px; }
+.landing-page .scroll-down-container:hover .arrow-icon{ font-size: 26px; }
+.landing-page .scroll-down-container:hover .scroll-down-text{ font-size: 16px; }
+
+@media (max-width: 768px){
+  .landing-page .scroll-down-container{ display: none !important; }
+}
+
+
