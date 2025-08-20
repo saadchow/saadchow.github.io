@@ -408,4 +408,32 @@ header {
   .card-emoji{ height:160px; font-size:64px; }
 }
 
+html { scroll-snap-type: y proximity; }
+
+@media (max-width: 768px) {
+  html { scroll-snap-type: none; }
+}
+
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity .6s cubic-bezier(.22,.61,.36,1),
+    transform .6s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+}
+
+.section.in-view [data-reveal]{
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(var(--stagger, 0) * 110ms);
+}
+
+@media (prefers-reduced-motion: reduce){
+  [data-reveal]{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 
