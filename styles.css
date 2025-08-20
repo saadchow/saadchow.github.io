@@ -189,7 +189,7 @@ header{
 .description h3{font-size:4em;color:var(--accent);margin-bottom:10px}
 .description .intro-text{font-size:2em;color:var(--text-secondary);margin-bottom:20px;font-weight:399}
 .location{display:flex;align-items:center;margin-bottom:30px;font-size:1.2em;color:var(--text-light)}
-.location .material-symbols-outlined{color:#ef4444;margin-right:10px;font-size:24px}
+.location .material-symbols-outlined{color:red;margin-right:10px;font-size:24px}
 .location-text{font-size:1.2em;color:var(--text-light)}
 .description .bio-text{font-size:1.1em;margin-top:10px;line-height:1.8;color:var(--text-light);text-align:justify}
 .description .bio-text strong{color:var(--accent);font-weight:600}
@@ -337,6 +337,7 @@ header{
 .description h3{font-size:clamp(1.6rem,6vw,2.4rem)}
 .tools-description h2,.projects-description h2,.education-description h2,.contact-description h2{font-size:clamp(1.8rem,6vw,2.6rem)}
 .profile-photo{width:clamp(160px,40vw,320px);height:clamp(160px,40vw,320px)}
+
 
 
 
