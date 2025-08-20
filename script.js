@@ -1,4 +1,3 @@
-/* ---------- Theme ---------- */
 function toggleTheme() {
   const body = document.body;
   const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -12,7 +11,6 @@ function loadTheme() {
 }
 document.addEventListener('DOMContentLoaded', loadTheme);
 
-/* ---------- Smooth scroll Contact ---------- */
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href="#contact-section"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -23,13 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/* ---------- Year ---------- */
 (() => {
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 })();
 
-/* ---------- Waterfall reveal (bfcache-safe, mobile-safe) ---------- */
 (() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;
@@ -189,3 +185,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } catch (_) {}
 })();
+
