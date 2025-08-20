@@ -219,6 +219,28 @@ header{
 .education{
   max-width:800px;margin:0 auto;background:var(--card-bg);padding:40px;border-radius:20px;box-shadow:0 15px 30px var(--shadow);border:1px solid var(--border)
 }
+.education a,
+.education a:link,
+.education a:visited {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.education a:hover,
+.education a:focus-visible {
+  color: var(--accent-hover);
+  text-decoration: none;
+}
+
+.education a h3 {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.education a:hover h3,
+.education a:focus-visible h3 {
+  color: var(--accent-hover);
+}
 .education h3,.education h4,.education p{color:var(--text-primary)}
 .education h3{font-size:1.8em;margin-bottom:10px}
 .education h4{font-size:1.4em;color:var(--text-secondary);margin-bottom:8px}
@@ -256,3 +278,4 @@ body.reveal-ready .reveal.is-visible{opacity:1;transform:translateY(0)}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
 }
+
