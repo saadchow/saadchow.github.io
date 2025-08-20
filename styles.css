@@ -14,8 +14,8 @@
   --shadow:rgba(139,92,246,.1);
 
   /* Alternating backgrounds */
-  --section-bg-odd:#ffffff;
-  --section-bg-even:#eef2ff;
+   --section-bg-odd:#ffffff; 
+  --section-bg-even:#f8f9ff;
 
   /* Card emoji / placeholder tiles if you use them */
   --tile-bg:#ffffff;
@@ -36,8 +36,8 @@
   --card-bg:rgba(31,31,31,.95);
   --shadow:rgba(0,0,0,.3);
 
-  --section-bg-odd:#0f0f12;
-  --section-bg-even:#1b1b22;
+  --section-bg-odd:#161616; 
+  --section-bg-even:#1f1f1f;
 
   --tile-bg:#181818;
 }
@@ -337,5 +337,6 @@ header{
 .description h3{font-size:clamp(1.6rem,6vw,2.4rem)}
 .tools-description h2,.projects-description h2,.education-description h2,.contact-description h2{font-size:clamp(1.8rem,6vw,2.6rem)}
 .profile-photo{width:clamp(160px,40vw,320px);height:clamp(160px,40vw,320px)}
+
 
 
