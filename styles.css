@@ -63,7 +63,7 @@ header{
 [data-theme="dark"] .logo{filter:brightness(0) invert(1)}
 .header-controls{display:flex;align-items:center;gap:15px}
 
-/* Theme toggle (with sun/moon) */
+
 .theme-toggle{
   --w:56px;--h:32px;--p:3px;
   width:var(--w);height:var(--h);border:0;border-radius:999px;
@@ -124,7 +124,7 @@ header{
 .landing-image{flex:1;text-align:center}
 .landing-image img{width:100%;height:auto;filter:drop-shadow(0 10px 30px rgba(0,0,0,.3))}
 
-/* Hover animations (desktop) */
+
 @media (hover:hover) and (pointer:fine){
   .landing-text h1{transition:transform .25s ease, text-shadow .25s ease, letter-spacing .25s ease}
   .landing-text h1:hover{transform:translateY(-2px);letter-spacing:.5px;text-shadow:0 6px 22px rgba(255,255,255,.35)}
@@ -252,13 +252,13 @@ header{
 .contact-item a:hover{color:var(--accent);transform:translateX(10px);background:rgba(139,92,246,.1)}
 .bottom{position:relative;margin-top:40px;text-align:center;color:var(--text-light);padding:10px;width:100%}
 
-/* Reveal system — visible by default; hide only when JS is ready */
+
 .reveal{opacity:1;transform:none}
 body.reveal-ready .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform}
 body.reveal-ready .reveal.is-visible{opacity:1;transform:translateY(0)}
 .skill-item.reveal{transition-duration:.5s}
 
-/* Responsive */
+
 @media (max-width:768px){
   .landing-content,.bio-container{flex-direction:column;text-align:center;padding:0 20px}
   .landing-text,.description{max-width:100%;margin-bottom:30px;padding-left:0}
@@ -277,5 +277,40 @@ body.reveal-ready .reveal.is-visible{opacity:1;transform:translateY(0)}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
+}
+
+
+.scroll-down-container {
+  position: fixed !important;
+  bottom: 30px !important;
+  right: 30px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 8px;
+  color: #fff;
+  z-index: 1000;
+  font-size: 14px;
+  transform: none !important;
+  inset: auto !important;
+}
+
+.scroll-down-text {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  margin: 0;
+  letter-spacing: 0.06em;
+}
+
+.arrow-icon {
+  font-size: 24px;
+  animation: bounce 2s infinite;
+}
+
+.scroll-down-container:hover .arrow-icon { font-size: 26px; }
+.scroll-down-container:hover .scroll-down-text { font-size: 16px; }
+
+@media (max-width: 768px) {
+  .scroll-down-container { display: none !important; }
 }
 
